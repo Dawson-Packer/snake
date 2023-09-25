@@ -1,5 +1,6 @@
 #include <string>
 #include "Window.h"
+#include "Game.h"
 #include "global.h"
 
 
@@ -9,20 +10,21 @@ class App {
         App();
         App( int width_, int height_ );
 
+        /// @brief Function that determines whether the app is running
+        /// @return Returns true if the app is running
         bool isRunning();
 
+        /// @brief Executed all app processes in one loop iteration
         void run();
 
     private:
         
-        
+        Game gm;
         Window wd;
         SDL_Event e;
-        std::string title;
-        int app_width;
-        int app_height;
 
         void input();
 
+        
         void log(int type, std::string statement);
 };

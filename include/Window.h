@@ -9,6 +9,8 @@ class Window {
 
         bool isOpen;
 
+        /// @brief Sets the title of the window
+        /// @param title The string to set the title to
         void set_title(std::string title);
 
         /// @brief Loads default surface information

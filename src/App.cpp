@@ -3,21 +3,30 @@
 
 
 App::App() : wd( 800, 800 ) {
-    title = "Snake";
-    wd.set_title( title );
+
+    wd.set_title( gm.title );
+
 }
 
 App::App( int width_, int height_ ) : wd( width_, height_ ) {
-    title = "Snake";
-    wd.set_title( title );
+    
+    wd.set_title( gm.title );
+
 }
 
 bool App::isRunning() {
+
     return wd.isOpen;
+
 }
 
 void App::run() {
+    gm.tick();
     input();
+
+
+
+    SDL_Delay( gm.wait_time ); // Must be at end of function
 }
 
 
