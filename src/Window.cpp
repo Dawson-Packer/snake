@@ -10,6 +10,9 @@ Window::Window( int width_, int height_ ) :
         SDL_RenderClear( renderer );
         SDL_RenderPresent( renderer );
         bool media_loaded = load_media();
+        SDL_SetWindowIcon( window, icon );
+        update_surface( SURFACE_DEFAULT );
+
         isOpen = ( window != NULL || !media_loaded ) ? true : false;
 
 }
@@ -21,7 +24,10 @@ void Window::set_title(std::string title) {
 bool Window::load_media() {
 
     bool success = true;
-    preloaded_surfaces[ SURFACE_KEYPRESS_UP ] = load_surface( "../media/background.bmp" );
+    icon = SDL_LoadBMP( "../media/icon.bmp" );
+
+    preloaded_surfaces[ SURFACE_DEFAULT ] = load_surface( "../media/background.bmp" );
+    preloaded_surfaces[ SURFACE_KEYPRESS_UP ] = load_surface( "../media/icon.bmp" ); // Temporary
     screen_surface = SDL_GetWindowSurface(window);
     return success;
 
