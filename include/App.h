@@ -21,6 +21,7 @@ class App {
         
         Game gm;
         Window wd;
+        int window_background;
         SDL_Event e;
 
         void input();

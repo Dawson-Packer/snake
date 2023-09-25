@@ -5,6 +5,7 @@
 App::App() : wd( gm.window_dimensions.first, gm.window_dimensions.second ) {
 
     wd.set_title( gm.title );
+    window_background;
 
 }
 
@@ -23,6 +24,9 @@ bool App::isRunning() {
 void App::run() {
 
     gm.tick();
+    
+
+    wd.update( gm.textures, gm.surfaces );
     input();
 
 
@@ -43,7 +47,7 @@ void App::input() {
 
                 case SDLK_UP : {
                     log( LOG_ACTION, "KEY_UP pressed" );
-                    wd.update_surface( SURFACE_KEYPRESS_UP );
+                    gm.load_surface( "../media/icon.bmp" );
 
                 }
 
