@@ -1,6 +1,7 @@
 #pragma once
 
 enum surface_media {
+    SURFACE_DEFAULT,
     SURFACE_KEYPRESS_UP,
     SURFACE_TOTAL
 };

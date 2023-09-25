@@ -28,7 +28,7 @@ class Window {
         SDL_Renderer *renderer = NULL;
         SDL_Window *window = NULL;
 
-        
+        SDL_Surface* icon = NULL;
         SDL_Surface* default_surface = NULL;
         SDL_Surface* screen_surface = NULL;
         SDL_Surface* top_surface = NULL;
