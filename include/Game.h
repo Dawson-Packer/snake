@@ -9,6 +9,7 @@ class Game {
         void tick();
 
         int wait_time;
+        std::pair<int, int> window_dimensions;
 
     private:
         unsigned int game_tick;
