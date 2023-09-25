@@ -14,30 +14,25 @@ Window::Window( int width_, int height_ ) :
 
 }
 
+void Window::set_title(std::string title) {
+    SDL_SetWindowTitle( window, title.c_str() );
+}
+
 bool Window::load_media() {
 
     bool success = true;
-    all_surfaces[ KEYPRESS_UP ] = load_surface( "../media/background.bmp" );
-    std::cout << "All surfaces loaded" << '\n';
+    preloaded_surfaces[ SURFACE_KEYPRESS_UP ] = load_surface( "../media/background.bmp" );
     screen_surface = SDL_GetWindowSurface(window);
     return success;
 
 }
 
-void Window::update() {
-    while (SDL_PollEvent( &event )) {
-        
-        if ( event.type == SDL_QUIT ) this->close();
-
-        // Keyboard Input
-        else if ( event.type == SDL_KEYDOWN ) {
-            switch ( event.key.keysym.sym ) {
-                case SDLK_UP : {top_surface = all_surfaces[ KEYPRESS_UP ]; std::cout << "Key Press: KEY UP" << '\n';} break;
-            }
-        }
-    }
+void Window::update_surface( int surface_type) {
+    
+    top_surface = preloaded_surfaces[ surface_type ];
     SDL_BlitSurface( top_surface, NULL, screen_surface, NULL );
     SDL_UpdateWindowSurface( this->window );
+
 
 }
 
@@ -45,9 +40,9 @@ void Window::close() {
 
     SDL_DestroyRenderer( renderer );
     SDL_DestroyWindow( window );
-    for (int i = 0; i < INPUT_TOTAL; ++i) {
-        SDL_FreeSurface( all_surfaces[ i ] );
-        all_surfaces[i] = NULL;
+    for (int i = 0; i < SURFACE_TOTAL; ++i) {
+        SDL_FreeSurface( preloaded_surfaces[ i ] );
+        preloaded_surfaces[i] = NULL;
     }
     isOpen = false;
 

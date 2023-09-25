@@ -1,15 +1,15 @@
 #include "SDL2/SDL.h"
-#include "../include/Window.h"
+#include "../include/App.h"
 #include <iostream> // <-- ONLY FOR TESTING AT THE MOMENT
 
-// Compilation command: g++ main.cpp Window.cpp -IC:\mingw64\include -I../include -LC:\mingw64\lib -lmingw32 -lSDL2main -lSDL2 -o snake.exe
+// Compilation command: g++ main.cpp Window.cpp App.cpp -IC:\mingw64\include -I../include -LC:\mingw64\lib -lmingw32 -lSDL2main -lSDL2 -o snake.exe
 
 int main( int argc, char *argv[] ) {
 
-    Window wd(800, 800);
+    App snake_game;
 
-    while( wd.isOpen ) {
-        wd.update();
+    while( snake_game.isRunning() ) {
+        snake_game.run();
 
         /*
             Anything else between update window and delay
