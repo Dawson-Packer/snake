@@ -40,7 +40,7 @@ void Game::tick() {
 void Game::load_elements() {
 
     create_object("Background", -1, "media/background.bmp", -1, 400, 400, 800, 800, 0.0, 0.0);
-    create_object("Snake Head", 1, "media/snake_head.bmp", 1, 400, 400, 32, 32, 0.0, 3.5);
+    create_object("Snake Head", 1, "media/snake_head.bmp", 1, 400, 400, 64, 64, 0.0, 5.5);
 
 }
 
