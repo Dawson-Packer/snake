@@ -5,13 +5,14 @@
 App::App() : wd( gm.window_dimensions.first, gm.window_dimensions.second ) {
 
     wd.set_title( gm.title );
-    window_background;
+    wd.update( gm.textures, gm.surfaces );
 
 }
 
 App::App( int width_, int height_ ) : wd( width_, height_ ) {
     
     wd.set_title( gm.title );
+    wd.update( gm.textures, gm.surfaces );
 
 }
 
@@ -26,7 +27,6 @@ void App::run() {
     gm.tick();
     
 
-    wd.update( gm.textures, gm.surfaces );
     input();
 
 
@@ -47,7 +47,8 @@ void App::input() {
 
                 case SDLK_UP : {
                     log( LOG_ACTION, "KEY_UP pressed" );
-                    gm.load_surface( "../media/icon.bmp" );
+                    gm.load_texture( 0, "../media/icon.bmp", 336, 336, 128, 128 );
+                    wd.update( gm.textures, gm.surfaces );
 
                 }
 

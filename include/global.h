@@ -31,6 +31,5 @@ struct _surface {
 struct _texture {
     int ID;
     std::string path;
-    int x_pos;
-    int y_pos;
+    SDL_Rect dim;
 };

@@ -15,9 +15,9 @@ class Game {
         std::pair<int, int> window_dimensions;
         std::vector<_texture> textures;
         std::vector<_surface> surfaces;
-        void load_texture( std::string path, int x, int y );
+        void load_texture( int id, std::string path, int x, int y, int h, int w );
 
-        void load_surface( std::string path );
+        void load_surface( int id, std::string path );
 
     private:
         unsigned int game_tick;

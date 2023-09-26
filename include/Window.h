@@ -15,20 +15,7 @@ class Window {
         /// @param title The string to set the title to
         void set_title(std::string title);
 
-        /// @brief Loads default surface information
-        /// @return Returns true on success
-        //bool load_media( std::vector<_texture> textures, std::vector<_surface> surfaces );
-
         void update( std::vector<_texture> textures, std::vector<_surface> surfaces );
-
-        /// @brief Takes input from user and runs associated actions
-        //void render_surface( int surface_type );
-
-        /// @brief Render a texture at a specific position on the screen
-        /// @param texture_id The ID of the texture to render
-        /// @param x The x position to render the texture at
-        /// @param y The y position to render the texture at
-        //void render_texture( int texture_id, int x, int y );
 
         /// @brief Kills the window and closes application
         void close();
