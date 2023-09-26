@@ -22,28 +22,23 @@ void Game::tick() {
 
 void Game::load_media() {
 
-    load_texture( -1, "../media/background.bmp", 0, 0, 800, 800 );
+    load_texture(-1, "../media/background.bmp", 0, 0, 800, 800);
 
 }
 
-void Game::load_texture( int id, std::string path, int x, int y, int h, int w ) {
+void Game::load_texture(int id, std::string path, int x, int y, int h, int w) {
 
-    textures.push_back( _texture() );
+    textures.push_back(_texture());
     int new_ID = textures.size() - 1;
-    textures[ new_ID ].ID = id;
-    textures[ new_ID ].path = path;
-    textures[ new_ID ].dim.x = x;
-    textures[ new_ID ].dim.y = y;
-    textures[ new_ID ].dim.h = h;
-    textures[ new_ID ].dim.w = w;
+    textures[new_ID].ID = id;
+    textures[new_ID].path = path;
+    textures[new_ID].dim.x = x;
+    textures[new_ID].dim.y = y;
+    textures[new_ID].dim.h = h;
+    textures[new_ID].dim.w = w;
 
 }
 
-void Game::load_surface( int id, std::string path ) {
-
-    surfaces.push_back( _surface() );
-    int new_ID = surfaces.size() - 1;
-    surfaces[ new_ID ].ID = id;
-    surfaces[ new_ID ].path = path;
-
+void Game::quit() {
+    
 }

@@ -1,5 +1,5 @@
-#include <C:/msys64/mingw64/include/SDL2/SDL.h>
-//#include <SDL2/SDL.H>
+//#include <C:/msys64/mingw64/include/SDL2/SDL.h>
+#include <SDL2/SDL.H>
 #include <string>
 #include <vector>
 #include <iostream>
@@ -7,7 +7,7 @@
 
 class Window {
     public:
-        Window( int width_, int height_ );
+        Window(int width_, int height_);
 
         bool isOpen;
 
@@ -15,7 +15,7 @@ class Window {
         /// @param title The string to set the title to
         void set_title(std::string title);
 
-        void update( std::vector<_texture> textures, std::vector<_surface> surfaces );
+        void update(std::vector<_texture> textures);
 
         /// @brief Kills the window and closes application
         void close();
@@ -36,8 +36,8 @@ class Window {
         /// @brief Loads a surface with a BMP
         /// @param path The path to the image from the current directory
         /// @return Returns a surface containing the BMP
-        SDL_Surface* load_surface( std::string path );
+        SDL_Surface* load_surface(std::string path);
 
-        SDL_Texture* load_texture( std::string path );
+        SDL_Texture* load_texture(std::string path);
 
 };

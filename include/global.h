@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
-#include <C:/msys64/mingw64/include/SDL2/SDL.h>
-//#include <SDL2/SDL.h>
+//#include <C:/msys64/mingw64/include/SDL2/SDL.h>
+#include <SDL2/SDL.h>
 
 enum surface_media {
     SURFACE_DEFAULT,
