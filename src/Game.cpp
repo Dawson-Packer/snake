@@ -1,4 +1,5 @@
 #include "../include/Game.h"
+#include <iostream>
 
 Game::Game() {
 
@@ -7,6 +8,7 @@ Game::Game() {
     window_dimensions.second = 800;
     window_background = SURFACE_DEFAULT;
     game_tick = 0;
+    tail_tick = 0;
     wait_time = 10;
 
     load_elements();
@@ -16,18 +18,29 @@ Game::Game() {
 
 void Game::tick() {
 
-
+    for (int i = 0; i < game_objects.size(); ++i) {
+        if (game_objects[i].ID == SNAKE_HEAD) {
+            game_objects[i].move();
+        }
+    }
     game_tick++;
+    tail_tick++;
+    if (tail_tick == 5) {
+        std::cout << "speed increase" << '\n';
+        for (int i = 0; i < game_objects.size(); ++i) {
+        if (game_objects[i].ID == SNAKE_HEAD) {
+            /* Grow Tail */
+            }
+        }   
+        tail_tick = 0;
+    }
     
 }
 
 void Game::load_elements() {
 
-    create_object("Background", -1, "media/background.bmp", -1, 400, 400, 800, 800, 0, 0);
-    create_object("Snake Head", 1, "media/snake_head.bmp", 1, 400, 400, 64, 64, 0.0, 0.5);
-    //load_texture(-1, "media/background.bmp", 400, 400, 800, 800, 0);
-    //load_texture(1, "media/snake_head.bmp", 400, 400, 64, 64, 0);
-    
+    create_object("Background", -1, "media/background.bmp", -1, 400, 400, 800, 800, 0.0, 0.0);
+    create_object("Snake Head", 1, "media/snake_head.bmp", 1, 400, 400, 32, 32, 0.0, 3.5);
 
 }
 

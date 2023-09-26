@@ -25,11 +25,10 @@ bool App::isRunning() {
 void App::run() {
 
     gm.tick();
-    
 
     input();
-
-
+    std::cout << gm.game_objects[1].xPos() << '\n';
+    wd.update(gm.game_objects);
 
     SDL_Delay(gm.wait_time); // Must be at end of function
 }
@@ -50,10 +49,32 @@ void App::input() {
 
                 case SDLK_UP : {
                     log(LOG_ACTION, "KEY_UP pressed");
-                    //gm.load_texture(0, "media/icon.bmp", 400, 400, 128, 128, 0);
-                    wd.update(gm.game_objects);
-
+                    for(int i = 0; i < gm.game_objects.size(); ++i) {
+                        if (gm.game_objects[i].ID == SNAKE_HEAD) gm.game_objects[i].setRotation(270);
+                    }
                 }
+                break;
+                case SDLK_DOWN : {
+                    log(LOG_ACTION, "KEY_DOWN pressed");
+                    for(int i = 0; i < gm.game_objects.size(); ++i) {
+                        if (gm.game_objects[i].ID == SNAKE_HEAD) gm.game_objects[i].setRotation(90);
+                    }
+                }
+                break;
+                case SDLK_RIGHT : {
+                    log(LOG_ACTION, "KEY_RIGHT pressed");
+                    for(int i = 0; i < gm.game_objects.size(); ++i) {
+                        if (gm.game_objects[i].ID == SNAKE_HEAD) gm.game_objects[i].setRotation(0);
+                    }
+                }
+                break;
+                case SDLK_LEFT : {
+                    log(LOG_ACTION, "KEY_LEFT pressed");
+                    for(int i = 0; i < gm.game_objects.size(); ++i) {
+                        if (gm.game_objects[i].ID == SNAKE_HEAD) gm.game_objects[i].setRotation(180);
+                    }
+                }
+                break;
 
             }
 

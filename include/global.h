@@ -5,6 +5,12 @@
 
 const double PI = 3.14159;
 
+enum GAME_OBJECTS {
+    BACKGROUND = -1,
+    DEFAULT,
+    SNAKE_HEAD
+};
+
 enum surface_media {
     SURFACE_DEFAULT,
     SURFACE_KEYPRESS_UP,
@@ -34,5 +40,5 @@ struct _texture {
     int ID;
     std::string path;
     SDL_Rect dim;
-    int r;
+    double r;
 };

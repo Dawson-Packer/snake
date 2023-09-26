@@ -21,6 +21,7 @@ class Game {
 
     private:
         unsigned int game_tick;
+        int tail_tick;
 
 
         void load_elements();
