@@ -4,6 +4,7 @@
 #include <vector>
 #include <iostream>
 #include "global.h"
+#include "GameObject.h"
 
 class Window {
     public:
@@ -15,7 +16,7 @@ class Window {
         /// @param title The string to set the title to
         void set_title(std::string title);
 
-        void update(std::vector<_texture> textures);
+        void update(std::vector<GameObject> objects);
 
         /// @brief Kills the window and closes application
         void close();

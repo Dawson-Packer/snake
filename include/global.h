@@ -3,6 +3,8 @@
 //#include <C:/msys64/mingw64/include/SDL2/SDL.h>
 #include <SDL2/SDL.h>
 
+const double PI = 3.14159;
+
 enum surface_media {
     SURFACE_DEFAULT,
     SURFACE_KEYPRESS_UP,
@@ -32,4 +34,5 @@ struct _texture {
     int ID;
     std::string path;
     SDL_Rect dim;
+    int r;
 };

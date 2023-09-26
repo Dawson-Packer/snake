@@ -9,33 +9,31 @@ Game::Game() {
     game_tick = 0;
     wait_time = 10;
 
-    load_media();
+    load_elements();
 
 }
 
 
 void Game::tick() {
 
+
     game_tick++;
     
 }
 
-void Game::load_media() {
+void Game::load_elements() {
 
-    load_texture(-1, "../media/background.bmp", 0, 0, 800, 800);
+    create_object("Background", -1, "media/background.bmp", -1, 400, 400, 800, 800, 0, 0);
+    create_object("Snake Head", 1, "media/snake_head.bmp", 1, 400, 400, 64, 64, 0.0, 0.5);
+    //load_texture(-1, "media/background.bmp", 400, 400, 800, 800, 0);
+    //load_texture(1, "media/snake_head.bmp", 400, 400, 64, 64, 0);
+    
 
 }
 
-void Game::load_texture(int id, std::string path, int x, int y, int h, int w) {
+void Game::create_object(std::string name, int id, std::string path, int texture_id, int x, int y, int w, int h, double r, double v) {
 
-    textures.push_back(_texture());
-    int new_ID = textures.size() - 1;
-    textures[new_ID].ID = id;
-    textures[new_ID].path = path;
-    textures[new_ID].dim.x = x;
-    textures[new_ID].dim.y = y;
-    textures[new_ID].dim.h = h;
-    textures[new_ID].dim.w = w;
+    game_objects.push_back(GameObject(name, id, x, y, w, h, r, v, texture_id, path));
 
 }
 

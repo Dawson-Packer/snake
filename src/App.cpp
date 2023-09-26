@@ -5,14 +5,14 @@
 App::App() : wd(gm.window_dimensions.first, gm.window_dimensions.second) {
 
     wd.set_title(gm.title);
-    wd.update(gm.textures);
+    wd.update(gm.game_objects);
 
 }
 
 App::App(int width_, int height_) : wd(width_, height_) {
     
     wd.set_title(gm.title);
-    wd.update(gm.textures);
+    wd.update(gm.game_objects);
 
 }
 
@@ -50,8 +50,8 @@ void App::input() {
 
                 case SDLK_UP : {
                     log(LOG_ACTION, "KEY_UP pressed");
-                    gm.load_texture( 0, "../media/icon.bmp", 336, 336, 128, 128 );
-                    wd.update( gm.textures);
+                    //gm.load_texture(0, "media/icon.bmp", 400, 400, 128, 128, 0);
+                    wd.update(gm.game_objects);
 
                 }
 

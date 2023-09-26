@@ -11,7 +11,7 @@ Window::Window(int width_, int height_) :
         SDL_RenderClear(renderer);
         SDL_RenderPresent(renderer);
         screen_surface = SDL_GetWindowSurface(window);
-        icon = SDL_LoadBMP("../media/icon.bmp");
+        icon = SDL_LoadBMP("media/icon.bmp");
         SDL_SetWindowIcon(window, icon);
 
         isOpen = (window != NULL) ? true : false;
@@ -22,14 +22,14 @@ void Window::set_title(std::string title) {
     SDL_SetWindowTitle(window, title.c_str());
 }
 
-void Window::update(std::vector<_texture> textures) {
+void Window::update(std::vector<GameObject> objects) {
 
     SDL_RenderClear(renderer);
     
-    for (int i = 0; i < textures.size(); ++i) {
+    for (int i = 0; i < objects.size(); ++i) {
 
-        std::cout << textures[i].path << '\n';
-        SDL_RenderCopy(renderer, load_texture(textures[i].path), NULL, &textures[i].dim);
+        std::cout << objects[i].texture.path << '\n';
+        SDL_RenderCopyEx(renderer, load_texture(objects[i].texture.path), NULL, &objects[i].texture.dim, objects[i].texture.r, NULL, SDL_FLIP_NONE);
 
     }
 
