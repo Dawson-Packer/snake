@@ -1,8 +1,7 @@
-//#include <C:/msys64/mingw64/include/SDL2/SDL.h>
-#include <SDL2/SDL.H>
+#include <C:/msys64/mingw64/include/SDL2/SDL.h> // <-- PATH???
+//#include <SDL2/SDL.h>
 #include <string>
 #include <vector>
-#include <iostream>
 #include "global.h"
 #include "GameObject.h"
 

@@ -2,7 +2,8 @@
 #include "../include/GameObject.h"
 #include <iostream>
 
-GameObject::GameObject(std::string name_, int ID, int x_, int y_, int w_, int h_, double r_, double v_, int texture_id, std::string path) :
+GameObject::GameObject(std::string name_, int ID, int x_, int y_, int w_, int h_, double r_,
+double v_, int texture_id, std::string path) :
     name(name_), ID(ID), x(x_), y(y_), r(r_), v(v_) {
         texture.ID = texture_id;
         texture.path = path;
@@ -41,7 +42,8 @@ void GameObject::move() {
     
     x = x + int((v * cos(r * (PI / 180.0))));
     y = y + int((v * sin(r * (PI / 180.0))));
-    std::cout << "move: " << int((v * cos(r * (PI / 180.0)))) << int((v * sin(r * (PI / 180.0)))) << '\n';
+    std::cout << "move: " << int((v * cos(r * (PI / 180.0)))) << int((v * sin(r * (PI / 180.0))))
+    << '\n';
     update_texture_data();
 }
 

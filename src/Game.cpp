@@ -44,7 +44,8 @@ void Game::load_elements() {
 
 }
 
-void Game::create_object(std::string name, int id, std::string path, int texture_id, int x, int y, int w, int h, double r, double v) {
+void Game::create_object(std::string name, int id, std::string path, int texture_id, int x, int y,
+int w, int h, double r, double v) {
 
     game_objects.push_back(GameObject(name, id, x, y, w, h, r, v, texture_id, path));
 

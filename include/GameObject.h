@@ -4,7 +4,9 @@
 
 class GameObject {
     public:
-        GameObject(std::string name_ = "missingname", int ID = -99, int x_ = 0, int y_ = 0, int w_ = 64, int h_ = 64, double r_ = 0.0, double v_ = 0.0, int texture_id = 0, std::string path = "media/missingtexture.bmp");
+        GameObject(std::string name_ = "missingname", int ID = -99, int x_ = 0, int y_ = 0,
+        int w_ = 64, int h_ = 64, double r_ = 0.0, double v_ = 0.0, int texture_id = 0,
+        std::string path = "media/missingtexture.bmp");
 
         std::string name;
         void setX(int x_);

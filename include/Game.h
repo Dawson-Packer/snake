@@ -15,7 +15,8 @@ class Game {
         int window_background;
         std::pair<int, int> window_dimensions;
         std::vector<GameObject> game_objects;
-        void create_object(std::string name, int id, std::string path, int texture_id, int x, int y, int w, int h, double r, double v);
+        void create_object(std::string name, int id, std::string path, int texture_id, int x, int y,
+         int w, int h, double r, double v);
 
         void quit();
 

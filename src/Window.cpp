@@ -28,7 +28,8 @@ void Window::update(std::vector<GameObject> objects) {
     
     for (int i = 0; i < objects.size(); ++i) {
         
-        SDL_RenderCopyEx(renderer, load_texture(objects[i].texture.path), NULL, &objects[i].texture.dim, objects[i].texture.r, NULL, SDL_FLIP_NONE);
+        SDL_RenderCopyEx(renderer, load_texture(objects[i].texture.path), NULL,
+        &objects[i].texture.dim, objects[i].texture.r, NULL, SDL_FLIP_NONE);
 
     }
 
