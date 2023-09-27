@@ -1,8 +1,8 @@
 #pragma once
 #include <string>
 #include <iostream>
-#include <C:/msys64/mingw64/include/SDL2/SDL.h> // <-- PATH???
-//#include <SDL2/SDL.h>
+//#include <C:/msys64/mingw64/include/SDL2/SDL.h> // <-- PATH???
+#include "SDL.h"
 
 const double PI = 3.14159;
 
