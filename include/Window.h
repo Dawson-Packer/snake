@@ -1,5 +1,3 @@
-#include <C:/msys64/mingw64/include/SDL2/SDL.h> // <-- PATH???
-//#include <SDL2/SDL.h>
 #include <string>
 #include <vector>
 #include "global.h"
