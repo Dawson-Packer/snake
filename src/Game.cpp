@@ -51,6 +51,12 @@ int w, int h, double r, double v) {
 
 }
 
+void Game::rotate_snake(int rotation) {
+    for(int i = 0; i < game_objects.size(); ++i) {
+        if (game_objects[i].ID == SNAKE_HEAD) game_objects[i].setRotation(rotation);
+    }
+}
+
 void Game::quit() {
     
 }

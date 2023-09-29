@@ -49,30 +49,22 @@ void App::input() {
 
                 case SDLK_UP : {
                     log(LOG_ACTION, "KEY_UP pressed");
-                    for(int i = 0; i < gm.game_objects.size(); ++i) {
-                        if (gm.game_objects[i].ID == SNAKE_HEAD) gm.game_objects[i].setRotation(270);
-                    }
+                    gm.rotate_snake(270);
                 }
                 break;
                 case SDLK_DOWN : {
                     log(LOG_ACTION, "KEY_DOWN pressed");
-                    for(int i = 0; i < gm.game_objects.size(); ++i) {
-                        if (gm.game_objects[i].ID == SNAKE_HEAD) gm.game_objects[i].setRotation(90);
-                    }
+                    gm.rotate_snake(90);
                 }
                 break;
                 case SDLK_RIGHT : {
                     log(LOG_ACTION, "KEY_RIGHT pressed");
-                    for(int i = 0; i < gm.game_objects.size(); ++i) {
-                        if (gm.game_objects[i].ID == SNAKE_HEAD) gm.game_objects[i].setRotation(0);
-                    }
+                    gm.rotate_snake(0);
                 }
                 break;
                 case SDLK_LEFT : {
                     log(LOG_ACTION, "KEY_LEFT pressed");
-                    for(int i = 0; i < gm.game_objects.size(); ++i) {
-                        if (gm.game_objects[i].ID == SNAKE_HEAD) gm.game_objects[i].setRotation(180);
-                    }
+                    gm.rotate_snake(180);
                 }
                 break;
 

@@ -18,6 +18,10 @@ class Game {
         void create_object(std::string name, int id, std::string path, int texture_id, int x, int y,
          int w, int h, double r, double v);
 
+        /// @brief Rotates snake to the input in degrees
+        /// @param rotation The rotation value in degrees
+        void rotate_snake(int rotation);
+
         void quit();
 
     private:

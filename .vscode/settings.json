@@ -45,5 +45,8 @@
         "streambuf": "cpp",
         "typeinfo": "cpp"
     },
-    "editor.rulers": [100]
+    "editor.rulers": [
+        100
+    ],
+    "C_Cpp.default.compilerPath": "C:\\mingw64\\bin\\g++.exe"
 }
