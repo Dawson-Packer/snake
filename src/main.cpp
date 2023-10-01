@@ -4,12 +4,19 @@
 
 int main( int argc, char *argv[] ) {
 
-    App snake_game;
+    bool restart = true;
 
-    while( snake_game.isRunning() ) {
 
-        snake_game.run();
+    while (restart) {
+        
+        App snake_game;
 
+        while(snake_game.isRunning()) {
+
+            snake_game.run();
+
+        }
+        restart = snake_game.isRestarting;
     }
 
     return 0;

@@ -5,14 +5,14 @@
 App::App() : wd(gm.window_dimensions.first, gm.window_dimensions.second) {
 
     wd.set_title(gm.title);
-    wd.update(gm.game_objects);
+    wd.update(gm.textures);
 
 }
 
 App::App(int width_, int height_) : wd(width_, height_) {
     
     wd.set_title(gm.title);
-    wd.update(gm.game_objects);
+    wd.update(gm.textures);
 
 }
 
@@ -24,11 +24,13 @@ bool App::isRunning() {
 
 void App::run() {
 
+    if (gm.game_restarting) restart();
+    if (!gm.game_running) quit();
+
     gm.tick();
 
     input();
-    std::cout << gm.game_objects[1].xPos() << '\n';
-    wd.update(gm.game_objects);
+    if (gm.textures_changed) wd.update(gm.textures);
 
     SDL_Delay(gm.wait_time); // Must be at end of function
 }
@@ -41,6 +43,7 @@ void App::input() {
         if (e.type == SDL_QUIT) {
             gm.quit();
             wd.close();
+            quit();
         }
 
         else if (e.type == SDL_KEYDOWN) {
@@ -76,6 +79,8 @@ void App::input() {
     
 }
 
+
+
 void App::log(int type, std::string statement) {
     
     switch (type) {
@@ -89,4 +94,14 @@ void App::log(int type, std::string statement) {
 
     }
 
+}
+
+void App::restart() {
+    
+    wd.close();
+    isRestarting = true;
+}
+
+void App::quit() {
+    
 }

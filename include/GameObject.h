@@ -8,6 +8,8 @@ class GameObject {
         int w_ = 64, int h_ = 64, double r_ = 0.0, double v_ = 0.0, int texture_id = 0,
         std::string path = "media/missingtexture.bmp");
 
+        _texture texture;
+
         std::string name;
         void setX(int x_);
         void setY(int y_);
@@ -18,16 +20,14 @@ class GameObject {
 
         int xPos();
         int yPos();
-        double rotation();
-        double velocity();
-
-        _texture texture;
+        double getRotation();
+        double getVelocity();
 
         void move();
 
     private:
         int x, y;
-        double r, v;
+        double rotation, velocity;
 
         void update_texture_data();
 };

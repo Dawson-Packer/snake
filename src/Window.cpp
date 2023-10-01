@@ -22,15 +22,16 @@ void Window::set_title(std::string title) {
     SDL_SetWindowTitle(window, title.c_str());
 }
 
-void Window::update(std::vector<GameObject> objects) {
+void Window::update(std::vector<_texture> textures) {
 
     SDL_RenderClear(renderer);
     
-    for (int i = 0; i < objects.size(); ++i) {
+    for (int i = 0; i < textures.size(); ++i) {
         
-        SDL_RenderCopyEx(renderer, load_texture(objects[i].texture.path), NULL,
-        &objects[i].texture.dim, objects[i].texture.r, NULL, SDL_FLIP_NONE);
-
+        SDL_Texture* loaded_texture = load_texture(textures[i].path);
+        SDL_RenderCopyEx(renderer, loaded_texture, NULL, &textures[i].dim, textures[i].rotation,
+        NULL, SDL_FLIP_NONE);
+        SDL_DestroyTexture(loaded_texture);
     }
 
     SDL_RenderPresent(renderer);

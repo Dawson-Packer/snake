@@ -4,7 +4,7 @@
 
 GameObject::GameObject(std::string name_, int ID, int x_, int y_, int w_, int h_, double r_,
 double v_, int texture_id, std::string path) :
-    name(name_), ID(ID), x(x_), y(y_), r(r_), v(v_) {
+    name(name_), ID(ID), x(x_), y(y_), rotation(r_), velocity(v_) {
         texture.ID = texture_id;
         texture.path = path;
         texture.dim.w = w_;
@@ -23,32 +23,30 @@ void GameObject::setY(int y_) {
     }
 
 void GameObject::setRotation(double r_) {
-    r = r_;
+    rotation = r_;
     update_texture_data();
     }
 
-void GameObject::setVelocity(double v_) { v = v_; }
+void GameObject::setVelocity(double v_) { velocity = v_; }
 
 int GameObject::xPos() { return x; }
 
 int GameObject::yPos() { return y; }
 
-double GameObject::rotation() { return r; }
+double GameObject::getRotation() { return rotation; }
 
-double GameObject::velocity() { return v; }
+double GameObject::getVelocity() { return velocity; }
 
 void GameObject::move() {
 
     
-    x = x + int((v * cos(r * (PI / 180.0))));
-    y = y + int((v * sin(r * (PI / 180.0))));
-    std::cout << "move: " << int((v * cos(r * (PI / 180.0)))) << int((v * sin(r * (PI / 180.0))))
-    << '\n';
+    x = x + int((velocity * cos(rotation * (PI / 180.0))));
+    y = y + int((velocity * sin(rotation * (PI / 180.0))));
     update_texture_data();
 }
 
 void GameObject::update_texture_data() {
     texture.dim.x = x - (texture.dim.w / 2);
     texture.dim.y = y - (texture.dim.h / 2);
-    texture.r = r;
+    texture.rotation = rotation;
 }

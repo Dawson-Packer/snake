@@ -40,5 +40,5 @@ struct _texture {
     int ID;
     std::string path;
     SDL_Rect dim;
-    double r;
+    double rotation;
 };

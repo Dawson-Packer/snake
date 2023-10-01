@@ -12,14 +12,14 @@ class Window {
         /// @brief Sets the title of the window
         /// @param title The string to set the title to
         void set_title(std::string title);
-
-        void update(std::vector<GameObject> objects);
+        void update(std::vector<_texture> textures);
 
         /// @brief Kills the window and closes application
         void close();
     private:
         int height;
         int width;
+
         SDL_Renderer *renderer = NULL;
         SDL_Window *window = NULL;
 
