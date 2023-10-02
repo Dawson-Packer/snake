@@ -13,7 +13,7 @@ class App {
         /// @brief Function that determines whether the app is running
         /// @return Returns true if the app is running
         bool isRunning();
-        bool isRestarting;
+        bool isRestarting = false;
 
         /// @brief Executed all app processes in one loop iteration
         void run();

@@ -42,6 +42,18 @@ void GameObject::move() {
     
     x = x + int((velocity * cos(rotation * (PI / 180.0))));
     y = y + int((velocity * sin(rotation * (PI / 180.0))));
+    std::cout << "move" << '\n';
+    update_texture_data();
+}
+
+void GameObject::tail_grow() {
+    texture.dim.w += 4;
+        if (rotation == 0.0) x += 3;
+        else if (rotation == 270.0) y -= 3;
+        else if (rotation == 180.0) x -= 3;
+        else if (rotation == 90.0) y += 3;
+        std::cout << "re-center" << '\n';
+    std::cout << "grow" << '\n';
     update_texture_data();
 }
 

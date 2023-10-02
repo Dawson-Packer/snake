@@ -30,6 +30,8 @@ class Game {
         
         unsigned int game_tick;
         int tail_tick;
+        int tail_segment;
+
 
         void reload_texture(int index);
         void create_object(std::string name, int id, std::string path, int texture_id, int x, int y,

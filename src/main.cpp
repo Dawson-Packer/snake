@@ -8,7 +8,8 @@ int main( int argc, char *argv[] ) {
 
 
     while (restart) {
-        
+        // restart = false;
+
         App snake_game;
 
         while(snake_game.isRunning()) {

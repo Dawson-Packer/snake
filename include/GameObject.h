@@ -24,6 +24,7 @@ class GameObject {
         double getVelocity();
 
         void move();
+        void tail_grow();
 
     private:
         int x, y;
