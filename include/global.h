@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include <iostream>
-#include <SDL2/SDL.h>
+#include <C:mingw64/include/SDL2/SDL.h>
 
 const double PI = 3.14159;
 
