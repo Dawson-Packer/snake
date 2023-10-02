@@ -1,6 +1,6 @@
-ECHO OFF
+@echo off
 
 chdir /d D:\Projects\snake\
 git add .
-git commit -m "lazy dump"
+git commit -m "lazy push"
 git push
