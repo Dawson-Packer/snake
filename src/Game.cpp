@@ -59,9 +59,10 @@ void Game::tick() {
 
 void Game::load_textures() {
 
+    textures.clear();
     for (int i = 0; i < objects.size(); ++i) 
     textures.push_back(objects[i].texture);
-    for (int i = snake.tail_nodes.size() - 1; i >= 0; --i)
+    for (int i = snake.tail_nodes.size() - 1; i >= 0; --i) 
     textures.push_back(snake.tail_nodes[i].texture);
     textures.push_back(snake.texture);
 }

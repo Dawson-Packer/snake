@@ -12,7 +12,7 @@ double r_,
 double v_,
 int texture_id,
 std::string path) :
-Object(name, ID, x_, y_, w_, h_, r_, texture_id, path),
+Object(name_, ID, x_, y_, w_, h_, r_, texture_id, path),
     velocity(v_) {
 
     add_segment(xPos() - 16, yPos());
@@ -37,7 +37,7 @@ void Snake::add_segment(int x_, int y_) {
     int end = tail_nodes.size() - 1;
     tail_nodes[end].x = x_;
     tail_nodes[end].y = y_;
-    tail_nodes[end].texture.path = "../media/tail.bmp";
+    tail_nodes[end].texture.path = "media/tail.bmp";
     tail_nodes[end].texture.rotation = 0.0;
     tail_nodes[end].texture.dim.h = 16;
     tail_nodes[end].texture.dim.w = 16;

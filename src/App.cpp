@@ -30,7 +30,7 @@ void App::run() {
     gm.tick();
 
     input();
-    if (gm.textures_changed) wd.update(gm.textures);
+    wd.update(gm.textures);
 
     SDL_Delay(gm.wait_time); // Must be at end of function
 }
