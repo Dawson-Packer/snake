@@ -1,7 +1,6 @@
 #include <string>
 #include <vector>
 #include "global.h"
-#include "GameObject.h"
 
 class Window {
     public:
@@ -27,9 +26,6 @@ class Window {
         SDL_Surface* default_surface = NULL;
         SDL_Surface* screen_surface = NULL;
         SDL_Surface* top_surface = NULL;
-        SDL_Surface* preloaded_surfaces[ SURFACE_TOTAL ];
-
-        SDL_Texture* all_textures[ TEXTURE_TOTAL ];
 
         /// @brief Loads a surface with a BMP
         /// @param path The path to the image from the current directory

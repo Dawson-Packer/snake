@@ -1,7 +1,8 @@
 #include <string>
 #include <vector>
 #include "global.h"
-#include "GameObject.h"
+#include "Object.h"
+#include "Snake.h"
 
 class Game {
     public:
@@ -26,16 +27,17 @@ class Game {
         void quit();
 
     private:
-        std::vector<GameObject> game_objects;
-        
+        std::vector<Object> objects;
+        // Snake snake;
+        Snake snake = Snake("Snake", 1, 400, 400, 64, 64, 0.0, 5.5, 1, "../media/snake_head.bmp");
         unsigned int game_tick;
         int tail_tick;
         int tail_segment;
 
+        void load_textures();
 
-        void reload_texture(int index);
         void create_object(std::string name, int id, std::string path, int texture_id, int x, int y,
-         int w, int h, double r, double v);
+         int w, int h, double r);
 
         void load_elements();
 
