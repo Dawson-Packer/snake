@@ -61,7 +61,7 @@ SDL_Texture* Window::load_texture( std::string path ) {
     SDL_Texture* loaded_texture = NULL;
     SDL_Surface* loaded_surface = load_surface(path);
 
-    loaded_texture = SDL_CreateTextureFromSurface(this->renderer, loaded_surface);
+    loaded_texture = SDL_CreateTextureFromSurface(renderer, loaded_surface);
     if (loaded_texture == NULL) {
         printf("Unable to load texture %s! SDL Error: %s\n", path.c_str(), SDL_GetError());
     }

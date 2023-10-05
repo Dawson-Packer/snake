@@ -26,4 +26,5 @@ class Snake : public Object {
 
     private:
         double velocity;
+        double tail_wait_loop = 0;
 };

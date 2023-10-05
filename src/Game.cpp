@@ -3,11 +3,10 @@
 
 Game::Game() {
     title = "Snake";
-    window_dimensions.first = 800;
-    window_dimensions.second = 800;
+    window_dimensions.first = 640;
+    window_dimensions.second = 480;
     game_tick = 0;
-    tail_tick = 0;
-    wait_time = 10;
+    wait_time = 8;
 
     load_elements();
 
@@ -17,41 +16,28 @@ Game::Game() {
 void Game::tick() {
 
     textures_changed = false;
-    // for (int i = 0; i < objects.size(); ++i) {
-    //     if (objects[i].ID == SNAKE_HEAD) {
-    //         objects[i].move();
-    //         //std::cout << objects[i].xPos() << " " << objects[i].yPos() << '\n';
-    //         if (objects[i].yPos() >= 800 - (objects[i].texture.dim.h / 2)) {
-    //             rotate_snake(0.0);
-    //             objects[i].setY(767);
-    //         }
-    //         if (objects[i].xPos() >= 800 - (objects[i].texture.dim.w / 2)) {
-    //             rotate_snake(270.0);
-    //             objects[i].setX(767);
-    //         }
-    //         if (objects[i].yPos() <= 0 + (objects[i].texture.dim.h / 2)) {
-    //             rotate_snake(180.0);
-    //             objects[i].setY(33);
-    //         }
-    //         if (objects[i].xPos() <= 0 + (objects[i].texture.dim.w / 2) &&
-    //         (objects[i].yPos() < 800 - (objects[i].texture.dim.h / 2))) {
-    //             rotate_snake(90.0);
-    //             objects[i].setX(33);
-    //         }
-    //         if (objects[i].xPos() <= 0 || objects[i].xPos() >= 800 ||
-    //         objects[i].yPos() <= 0 || objects[i].yPos() >= 800) end_game(-1);
-    //         objects[tail_segment].tail_grow(); 
-
-    //         reload_texture(i);
-    //         textures_changed = true;
-    //     }
-    // }
-    game_tick++;
-    tail_tick++;
-    if (tail_tick == 20) {
-        /* shrink tail code*/
-        tail_tick = 0;
+    snake.move();
+    if (snake.yPos() >= 800 - (snake.texture.dim.h / 2)) {
+        rotate_snake(0.0);
+        snake.setY(767);
     }
+    if (snake.xPos() >= 800 - (snake.texture.dim.w / 2)) {
+        rotate_snake(270.0);
+        snake.setX(767);
+    }
+    if (snake.yPos() <= 0 + (snake.texture.dim.h / 2)) {
+        rotate_snake(180.0);
+        snake.setY(33);
+    }
+    if (snake.xPos() <= 0 + (snake.texture.dim.w / 2) &&
+    (snake.yPos() < 800 - (snake.texture.dim.h / 2))) {
+        rotate_snake(90.0);
+        snake.setX(33);
+    }
+    if (snake.xPos() <= 0 || snake.xPos() >= 800 ||
+    snake.yPos() <= 0 || snake.yPos() >= 800) end_game(-1);
+
+    game_tick++;
     
     load_textures();
 
@@ -89,22 +75,18 @@ void Game::load_elements() {
 
 }
 
-void Game::rotate_snake(int rotation) {
-    for(int i = 0; i < objects.size(); ++i) {
-        if (objects[i].ID == SNAKE_HEAD) {
-            objects[i].setRotation(rotation);
-        }
-    }
-    tail_segment++;
+void Game::rotate_snake(double rotation) {
+    std::cout << "ROTATE" << '\n';
+    snake.setRotation(rotation);
 }
 
 void Game::end_game(int points) {
 
+    quit();
     objects.clear();
-    textures.clear();
     create_object("End Game Background", -2, "media/end_background.bmp", -2, 400, 400, 800, 800,
     0.0);
-    textures_changed = true;
+    load_textures();
 }
 
 void Game::quit() {
