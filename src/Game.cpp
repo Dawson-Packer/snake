@@ -17,25 +17,25 @@ void Game::tick() {
 
     textures_changed = false;
     snake.move();
-    if (snake.yPos() >= 800 - (snake.texture.dim.h / 2)) {
+    if (snake.yPos() >= 480 - (snake.texture.dim.h / 2)) {
         rotate_snake(0.0);
-        snake.setY(767);
+        snake.setY(447);
     }
-    if (snake.xPos() >= 800 - (snake.texture.dim.w / 2)) {
+    if (snake.xPos() >= 640 - (snake.texture.dim.w / 2)) {
         rotate_snake(270.0);
-        snake.setX(767);
+        snake.setX(607);
     }
     if (snake.yPos() <= 0 + (snake.texture.dim.h / 2)) {
         rotate_snake(180.0);
         snake.setY(33);
     }
     if (snake.xPos() <= 0 + (snake.texture.dim.w / 2) &&
-    (snake.yPos() < 800 - (snake.texture.dim.h / 2))) {
+    (snake.yPos() < 480 - (snake.texture.dim.h / 2))) {
         rotate_snake(90.0);
         snake.setX(33);
     }
-    if (snake.xPos() <= 0 || snake.xPos() >= 800 ||
-    snake.yPos() <= 0 || snake.yPos() >= 800) end_game(-1);
+    if (snake.xPos() <= 0 || snake.xPos() >= 640 ||
+    snake.yPos() <= 0 || snake.yPos() >= 480) end_game(-1);
 
     game_tick++;
     
