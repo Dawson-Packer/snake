@@ -103,5 +103,5 @@ void App::restart() {
 }
 
 void App::quit() {
-    
+    wd.close();
 }

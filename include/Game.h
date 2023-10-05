@@ -31,6 +31,7 @@ class Game {
         // Snake snake;
         Snake snake = Snake("Snake", 1, 400, 400, 64, 64, 0.0, 8.0, 1, "media/snake_head.bmp");
         unsigned int game_tick;
+        bool isEnd = false;
 
         void load_textures();
 

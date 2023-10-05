@@ -16,6 +16,8 @@ class Snake : public Object {
         int texture_id,
         std::string path);
 
+        bool isIntersecting = false;
+
         void setVelocity(double v_);
         double getVelocity();
 
