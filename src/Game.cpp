@@ -80,6 +80,7 @@ void Game::load_elements() {
 }
 
 void Game::rotate_snake(double rotation) {
+        
     std::cout << "ROTATE" << '\n';
     snake.setRotation(rotation);
 }
