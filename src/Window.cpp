@@ -26,9 +26,9 @@ void Window::update(std::vector<_texture> textures) {
 
     SDL_RenderClear(renderer);
     
-    for (int i = 0; i < textures.size(); ++i) {
-        SDL_Texture* loaded_texture = load_texture(textures[i].path);
-        SDL_RenderCopyEx(renderer, loaded_texture, NULL, &textures[i].dim, textures[i].rotation,
+    for (const auto &texture: textures) {
+        SDL_Texture* loaded_texture = load_texture(texture.path);
+        SDL_RenderCopyEx(renderer, loaded_texture, NULL, &texture.dim, texture.rotation,
         NULL, SDL_FLIP_NONE);
         SDL_DestroyTexture(loaded_texture);
     }
