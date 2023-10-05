@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include <vector>
+#include <cmath>
 #include <C:/mingw64/include/SDL2/SDL.h>
 
 const double PI = 3.14159;

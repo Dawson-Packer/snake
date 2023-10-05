@@ -21,9 +21,8 @@ class Game {
         
         /// @brief Rotates snake to the input in degrees
         /// @param rotation The rotation value in degrees
-        void rotate_snake(double rotation);
         void end_game(int points);
-
+        double specified_rotation;
         void quit();
 
     private:
@@ -32,8 +31,10 @@ class Game {
         Snake snake = Snake("Snake", 1, 400, 400, 64, 64, 0.0, 8.0, 1, "media/snake_head.bmp");
         unsigned int game_tick;
         bool isEnd = false;
-
         void load_textures();
+        void attempt_rotate(double rotation);
+        void rotate_snake(double rotation);
+
 
         void create_object(std::string name, int id, std::string path, int texture_id, int x, int y,
          int w, int h, double r);

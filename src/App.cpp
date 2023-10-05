@@ -52,22 +52,22 @@ void App::input() {
 
                 case SDLK_UP : {
                     log(LOG_ACTION, "KEY_UP pressed");
-                    gm.rotate_snake(270.0);
+                    gm.specified_rotation = 270.0;
                 }
                 break;
                 case SDLK_DOWN : {
                     log(LOG_ACTION, "KEY_DOWN pressed");
-                    gm.rotate_snake(90.0);
+                    gm.specified_rotation = 90.0;
                 }
                 break;
                 case SDLK_RIGHT : {
                     log(LOG_ACTION, "KEY_RIGHT pressed");
-                    gm.rotate_snake(0.0);
+                    gm.specified_rotation = 0.0;
                 }
                 break;
                 case SDLK_LEFT : {
                     log(LOG_ACTION, "KEY_LEFT pressed");
-                    gm.rotate_snake(180.0);
+                    gm.specified_rotation = 180.0; 
                 }
                 break;
 

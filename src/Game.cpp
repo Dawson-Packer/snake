@@ -7,6 +7,7 @@ Game::Game() {
     window_dimensions.second = 480;
     game_tick = 0;
     wait_time = 8;
+    specified_rotation = snake.getRotation();
 
     load_elements();
 
@@ -17,22 +18,25 @@ void Game::tick() {
 
     textures_changed = false;
     if (!isEnd) {
+        if (specified_rotation != snake.getRotation()) attempt_rotate(specified_rotation);
         snake.move();
         if (snake.yPos() >= 480 - (snake.texture.dim.h / 2)) {
-            rotate_snake(0.0);
+            specified_rotation == 0.0;
             snake.setY(447);
         }
         if (snake.xPos() >= 640 - (snake.texture.dim.w / 2)) {
-            rotate_snake(270.0);
+            specified_rotation == 270.0;
             snake.setX(607);
         }
         if (snake.yPos() <= 0 + (snake.texture.dim.h / 2)) {
-            rotate_snake(180.0);
+            specified_rotation == 180.0;
+            
             snake.setY(33);
         }
         if (snake.xPos() <= 0 + (snake.texture.dim.w / 2) &&
         (snake.yPos() < 480 - (snake.texture.dim.h / 2))) {
-            rotate_snake(90.0);
+            specified_rotation == 90.0;
+            
             snake.setX(33);
         }
         if (snake.xPos() <= 0 || snake.xPos() >= 640 ||
@@ -77,6 +81,14 @@ void Game::load_elements() {
 
     create_object("Background", -1, "media/background.bmp", -1, 400, 400, 800, 800, 0.0);
 
+}
+
+void Game::attempt_rotate(double rotation) {
+    
+    if ((snake.xPos() >= (40*int(snake.xPos() / 40)) + 16 && snake.xPos() <= (40*int(snake.xPos() / 40)) + 24) && 
+    (rotation == 90.0 || rotation == 270.0)) rotate_snake(rotation);
+    if ((snake.yPos() >= (40*int(snake.yPos() / 40)) + 16 && snake.yPos() <= (40*int(snake.yPos() / 40)) + 24) && 
+    (rotation == 0.0 || rotation == 180.0)) rotate_snake(rotation);
 }
 
 void Game::rotate_snake(double rotation) {
