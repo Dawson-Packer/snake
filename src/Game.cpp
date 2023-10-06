@@ -8,7 +8,7 @@ Game::Game() {
     game_tick = 0;
     wait_time = 8;
     specified_rotation = snake.getRotation();
-
+    drop_apple();
     load_elements();
 
 }
@@ -20,27 +20,29 @@ void Game::tick() {
     if (!isEnd) {
         if (specified_rotation != snake.getRotation()) attempt_rotate(specified_rotation);
         snake.move();
-        if (snake.yPos() >= 480 - (snake.texture.dim.h / 2)) {
-            specified_rotation == 0.0;
-            snake.setY(447);
+        if (fabs(snake.xPos() - apple.xPos()) <= 16 && fabs(snake.yPos() - apple.yPos()) <= 16) {
+            drop_apple();
+            for (int i = 0; i < 1; ++i) snake.add_segment(snake.tail_nodes.back().x, snake.tail_nodes.back().y);
         }
-        if (snake.xPos() >= 640 - (snake.texture.dim.w / 2)) {
-            specified_rotation == 270.0;
-            snake.setX(607);
-        }
-        if (snake.yPos() <= 0 + (snake.texture.dim.h / 2)) {
-            specified_rotation == 180.0;
-            
-            snake.setY(33);
-        }
-        if (snake.xPos() <= 0 + (snake.texture.dim.w / 2) &&
-        (snake.yPos() < 480 - (snake.texture.dim.h / 2))) {
-            specified_rotation == 90.0;
-            
-            snake.setX(33);
-        }
+        // if (snake.yPos() >= 480 - (snake.texture.dim.h / 2)) {
+        //     rotate_snake(0.0);
+        //     snake.setY(447);
+        // }
+        // if (snake.xPos() >= 640 - (snake.texture.dim.w / 2)) {
+        //     rotate_snake(270.0);
+        //     snake.setX(607);
+        // }
+        // if (snake.yPos() <= 0 + (snake.texture.dim.h / 2)) {
+        //     rotate_snake(180.0);            
+        //     snake.setY(33);
+        // }
+        // if (snake.xPos() <= 0 + (snake.texture.dim.w / 2) &&
+        // (snake.yPos() < 480 - (snake.texture.dim.h / 2))) {
+        //     rotate_snake(90.0);
+        //     snake.setX(33);
+        // }
         if (snake.xPos() <= 0 || snake.xPos() >= 640 ||
-        snake.yPos() <= 0 || snake.yPos() >= 480) end_game(-1);
+        snake.yPos() <= 0 || snake.yPos() >= 480) end_game(0);
         if (snake.isIntersecting) end_game(0);
     }
     game_tick++;
@@ -55,8 +57,10 @@ void Game::load_textures() {
     for (int i = 0; i < objects.size(); ++i) 
     textures.push_back(objects[i].texture);
     if (!isEnd) {
+        textures.push_back(apple.texture);
         for (int i = snake.tail_nodes.size() - 1; i >= 0; --i) 
         textures.push_back(snake.tail_nodes[i].texture);
+        // textures.insert(std::end(textures), std::begin(snake.tail_textures), std::end(snake.tail_textures));
         textures.push_back(snake.texture);
     }
 }
@@ -95,6 +99,17 @@ void Game::rotate_snake(double rotation) {
         
     std::cout << "ROTATE" << '\n';
     snake.setRotation(rotation);
+}
+
+void Game::drop_apple() {
+
+    int new_x = rand() % 560;
+    new_x += 20 - (new_x % 40);
+    int new_y = rand() % 400;
+    new_y += 20 - (new_y % 40);
+
+    apple.setX(new_x);
+    apple.setY(new_y);
 }
 
 void Game::end_game(int points) {
