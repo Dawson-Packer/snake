@@ -1,7 +1,7 @@
-#include "../include/App.h"
+#include "../include/Bridge.h"
 #include <time.h>
 
-// Compilation command: g++ src/main.cpp src/Window.cpp src/App.cpp src/Game.cpp src/Object.cpp src/Snake.cpp -IC:\mingw64\include -I\include -LC:\mingw64\lib -lmingw32 -lSDL2main -lSDL2 -o snake.exe
+// Compilation command: g++ src/main.cpp src/Window.cpp src/Bridge.cpp src/Game.cpp src/Object.cpp src/Snake.cpp -IC:\mingw64\include -I\include -LC:\mingw64\lib -lmingw32 -lSDL2main -lSDL2 -o snake.exe
 
 int main( int argc, char *argv[] ) {
 
@@ -12,7 +12,7 @@ int main( int argc, char *argv[] ) {
     while (restart) {
         // restart = false;
 
-        App snake_game;
+        Bridge snake_game;
 
         while(snake_game.isRunning()) {
 

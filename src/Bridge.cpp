@@ -1,28 +1,27 @@
-#include "../include/App.h"
+#include "../include/Bridge.h"
 
 
 
-App::App() : wd(gm.window_dimensions.first, gm.window_dimensions.second) {
-
+Bridge::Bridge() : wd(gm.window_dimensions.first, gm.window_dimensions.second) {
     wd.set_title(gm.title);
     wd.update(gm.textures);
 
 }
 
-App::App(int width_, int height_) : wd(width_, height_) {
+Bridge::Bridge(int width_, int height_) : wd(width_, height_) {
     
     wd.set_title(gm.title);
     wd.update(gm.textures);
 
 }
 
-bool App::isRunning() {
+bool Bridge::isRunning() {
 
     return wd.isOpen;
 
 }
 
-void App::run() {
+void Bridge::run() {
 
     if (gm.game_restarting) restart();
     if (!gm.game_running) quit();
@@ -36,7 +35,7 @@ void App::run() {
 }
 
 
-void App::input() {
+void Bridge::input() {
 
     while ( SDL_PollEvent(&e) ) {
 
@@ -81,7 +80,7 @@ void App::input() {
 
 
 
-void App::log(int type, std::string statement) {
+void Bridge::log(int type, std::string statement) {
     
     switch (type) {
         
@@ -96,12 +95,12 @@ void App::log(int type, std::string statement) {
 
 }
 
-void App::restart() {
+void Bridge::restart() {
     
     wd.close();
     isRestarting = true;
 }
 
-void App::quit() {
+void Bridge::quit() {
     wd.close();
 }

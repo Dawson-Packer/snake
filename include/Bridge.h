@@ -5,10 +5,10 @@
 
 
 
-class App {
+class Bridge {
     public:
-        App();
-        App(int width_, int height_);
+        Bridge();
+        Bridge(int width_, int height_);
 
         /// @brief Function that determines whether the app is running
         /// @return Returns true if the app is running
